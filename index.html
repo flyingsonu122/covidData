@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Sonu kumar kushwaha">
+        <meta name="email" content="flyingsonu736@gmail.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="./style.css">
+        <title> Covid-19 Stats</title>
+
+    </head>
+
+    <body>
+        <h3>Live Covid-19 Data</h3>
+        <h4>Global Data</h4>
+        <div id="main"></div>
+        <h4>Countries Data</h4>
+        <div id="divResult" class="fixed-content"></div>
+
+        <script>
+
+            const getCovidStats = async () => {
+                try {
+                    const response = await fetch('https://api.covid19api.com/summary');
+                    const data = await response.json();
+
+                    global = data.Global;
+
+                    data.Countries.forEach(i => {
+
+                        const divResult = document.getElementById("divResult");
+
+                        const para = document.createElement("p")
+
+
+                        para.innerHTML = "Country : " + i.Country + "<br> New Confirmed :" + i.NewConfirmed + "<br> Total Confirmed :" + i.TotalConfirmed + "<br> New Deaths :" + i.NewDeaths + "<br> Total Deaths :" + i.TotalDeaths + "<br> New Recovered :" + i.NewRecovered + "<br> Total Recovered :" + i.TotalRecovered;
+
+                        divResult.appendChild(para)
+
+                        divResult.appendChild(document.createElement("br"))
+                        divResult.appendChild(document.createElement("hr"))
+
+
+
+                    })
+
+                }
+                catch (err) {
+                    console.log(`Error: ${err}`);
+                }
+                finally {
+                    glob = ` 
+          New Confirmed : ${global['NewConfirmed']}
+          Total Confirmed:       ${global['TotalConfirmed']}
+          New Deaths:       ${global['NewDeaths']}
+          Total Deaths:   ${global['TotalDeaths']}
+          New Recovered:         ${global['NewRecovered']}
+          Total Recovered:         ${global['TotalRecovered']}`
+                    document.getElementById('main').innerText = glob;
+
+
+
+                }
+            };
+            getCovidStats();
+        </script>
+        <div id="copyright">
+            <hr>
+            <span class="github-logo1">Made by <span class="lookbook"><a href="https://github.com/flyingsonu122"
+                        target="_blank">Sonu</a></span> 2020
+
+        </div>
+
+    </body>
+    <!--Made with love by Sonu kumar kushwaha -->
+
+</html>
