@@ -7,18 +7,27 @@
         <meta name="email" content="flyingsonu736@gmail.com">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="./style.css">
-        <title> Covid-19 Stats Data</title>
+        <title> Covid-19 Stats</title>
 
     </head>
 
     <body>
-        <marquee><h4> Stay Home Stay Safe </h4></marquee>
         <h3>Live Covid-19 Data</h3>
-        <h4>Global Data</h4>
-        <div id="main"></div>
-        <h4>Countries Data</h4>
-        <div id="divResult" class="fixed-content"></div>
+
+        <h5>Global Data</h4>
+
+        <div id="main" >
+
+        </div>
+        
+        <h5>Countries Data</h4>
+        <div class="apis" id="divResult">
+
+        </div>
 
         <script>
 
@@ -33,15 +42,20 @@
 
                         const divResult = document.getElementById("divResult");
 
-                        const para = document.createElement("p")
+                        let markup = ` 
+                        <div class="fixed-content card " data-aos="fade-up">
+                            <h4 class="mt-4">${i.Country}</h4>
+                            <p class="blue">New Confirmed :${i.NewConfirmed}</p>
+                            <p class="blue">Total Confirmed :${i.TotalConfirmed}</p>
+                            <p class="blue">New Deaths :${i.NewDeaths}</p>
+                            <p class="blue">Total Deaths :${i.TotalDeaths}</p>
+                            <p class="blue">New Recovered :${i.NewRecovered}</p>
+                            <p class="blue">Total Recovered :${i.TotalRecovered}</p>
+                        </div>
+                        `;
 
 
-                        para.innerHTML = "Country : " + i.Country + "<br> New Confirmed :" + i.NewConfirmed + "<br> Total Confirmed :" + i.TotalConfirmed + "<br> New Deaths :" + i.NewDeaths + "<br> Total Deaths :" + i.TotalDeaths + "<br> New Recovered :" + i.NewRecovered + "<br> Total Recovered :" + i.TotalRecovered;
-
-                        divResult.appendChild(para)
-
-                        divResult.appendChild(document.createElement("br"))
-                        divResult.appendChild(document.createElement("hr"))
+                        divResult.insertAdjacentHTML('beforeend', markup)
 
 
 
@@ -52,29 +66,40 @@
                     console.log(`Error: ${err}`);
                 }
                 finally {
-                    glob = ` 
-          New Confirmed : ${global['NewConfirmed']}
-          Total Confirmed:       ${global['TotalConfirmed']}
-          New Deaths:       ${global['NewDeaths']}
-          Total Deaths:   ${global['TotalDeaths']}
-          New Recovered:         ${global['NewRecovered']}
-          Total Recovered:         ${global['TotalRecovered']}`
-                    document.getElementById('main').innerText = glob;
+                    let glob = ` 
+                        <div class="fixed-content card " data-aos="fade-up">
+                            <p class="blue">New Confirmed : ${global['NewConfirmed']}</p>
+                            <p class="blue">Total Confirmed: ${global['TotalConfirmed']}</p>
+                            <p class="blue">New Deaths: ${global['NewDeaths']}</p>
+                            <p class="blue">Total Deaths: ${global['TotalDeaths']}</p>
+                            <p class="blue">New Recovered: ${global['NewRecovered']}</p>
+                            <p class="blue">Total Recovered: ${global['TotalRecovered']}</p>
+                        </div>
+                        `;
+
+                    document.getElementById('main').insertAdjacentHTML('beforeend', glob)
 
 
 
                 }
             };
-            getCovidStats();
-        </script>
-        <div id="copyright">
-            <hr>
-            <span class="github-logo1">Made by <span class="lookbook"><a href="https://github.com/flyingsonu122"
-                        target="_blank">Sonu</a></span> 2020
 
-        </div>
+            getCovidStats();
+
+        </script>
+
+
+        <footer class="bottom">Made with &#10084; By <a href="https://github.com/flyingsonu122">Sonu kumar</a></footer>
+
+
+        <script src="./app.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
 
     </body>
+    
     <!--Made with love by Sonu kumar kushwaha -->
 
 </html>
