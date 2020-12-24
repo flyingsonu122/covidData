@@ -69,21 +69,6 @@ h5 {
   margin-right:20px;
 }
 
-.upArrow{
-  position:fixed;
-  right:10px;
-  bottom:20px;
-  height:40px;
-  width:40px;
-  display:none
-}
-.show {
-display: inline-flex;
-}
-
-.hide {
- display:none;
-}
 
 footer{
   height:40px;
