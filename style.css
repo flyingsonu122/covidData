@@ -7,65 +7,88 @@
 */
 
 @font-face {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Montserrat Regular"), local("Montserrat-Regular"),
-      url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf)
-        format("truetype");
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat", sans-serif;
-    color: #404142;
-    font-size: 16px;
-    letter-spacing: 0.8px;
-    text-align: center;
-  }
-  p {
-    font-size: 1.4em;
-    line-height: 1.55em;
-    margin-bottom: 12px;
-    background-color: whitesmoke;
-  }
-  h3 {
-    text-align: center;
-  
-  }
-  h4{
-    text-align: center;
-    background-color: rgba(45, 45, 45, 0.1);
-    padding: 10px;
-    font-size: 27px;
-    text-transform: uppercase;
-  }
-  #main {
-    padding: 0;
-    text-align: center;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    margin: 45px;
-  }
-  #divResult {
-    padding: 0;
-    text-align: center;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    margin: 45px;
-  }
-  
-  
-  .fixed-content {
-    margin: 45px auto;
-    padding: 10px;
-    border-radius: 3px;
-    border: 5px #ccc solid;
-  }
-  
-  #copyright {
-    
-    padding: 1rem;
-  }
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"),
+    url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf)
+      format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #404142;
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+
+
+h3 {
+  text-align: center;
+  background-color: rgba(190, 108, 228, 0.1);
+  padding: 16px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h5 {
+  text-align: center;
+  background-color: rgba(185, 26, 26, 0.1);
+  padding: 10px 16px;
+  margin-top: 16px;
+  text-transform: capitalize;
+}
+
+.apis{
+  background-color: #f2f2f2;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-bottom:20px;
+}
+
+.fixed-content {
+  margin: auto;
+  padding: 0px 0px 10px 0px;
+  margin-top: 15px;
+  height: auto;
+  width: 300px;
+  text-align: center;
+  box-shadow: 6px 6px 10px #ccb3ff;
+  align-items: center;
+  border-top: 4px solid #6c5ce7;
+  border-radius: 8px;
+}
+
+.blue{
+  color: #6c5ce7;
+  margin-left:20px;
+  margin-right:20px;
+}
+
+.upArrow{
+  position:fixed;
+  right:10px;
+  bottom:20px;
+  height:40px;
+  width:40px;
+  display:none
+}
+.show {
+display: inline-flex;
+}
+
+.hide {
+ display:none;
+}
+
+footer{
+  height:40px;
+  text-align: center;
+  background-color: #ffffff;
+  padding:10px;
+  font-size: 14px;
+}
